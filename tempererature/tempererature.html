@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="doF"/>
+<input type="button" value="Fahrenheit" onclick="fahrenheit();"/>
+<input type="text" id="doK"/>
+<input type="button" value="Kenvin" onclick="kenvin()">
+<h4 id="result" ></h4>
+<script>
+    let Temperature = function (C) {
+        this.C = C;
+        this.getC = function () {
+            return C;
+        };
+        this.setC = function (C) {
+            this.C = C;
+        };
+        this.getF = function () {
+            return C * 1.8 + 32;
+        };
+        this.getK = function () {
+            return (C + 275);
+        };
+    };
+    function fahrenheit(){
+        let C = document.getElementById('doF').value;
+        let temperature = new Temperature(C);
+        let F = temperature.getF();
+        document.getElementById('result').innerHTML = F;
+    };
+    function kenvin() {
+        let C = parseInt(document.getElementById('doK').value);
+        let temperature = new Temperature(C);
+        let K = temperature.getK();
+        document.getElementById('result').innerHTML = K;
+    };
+</script>
+</body>
+</html>
